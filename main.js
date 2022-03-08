@@ -2,7 +2,7 @@
 
 function renderCoffee(coffee) {
     var html = '<tr class="coffee">';
-    html += '<td>' + coffee.id + '</td>';
+   // html += '<td>' + coffee.id + '</td>';
     html += '<td>' + coffee.name + '</td>';
     html += '<td>' + coffee.roast + '</td>';
     html += '</tr>';
@@ -55,3 +55,42 @@ var roastSelection = document.querySelector('#roast-selection');
 tbody.innerHTML = renderCoffees(coffees);
 
 submitButton.addEventListener('click', updateCoffees);
+
+/*
+document.getElementsByClassName('indivClick').addEventListener('click', listener);
+const sortCoffee = document.getElementById('sort-coffee-by-name');
+document.addEventListener('keyup', logKey);
+
+function logKey(e) {
+    sortCoffee.textContent += ` ${e.code}`;
+}
+*/
+
+let printedList = document.getElementById("coffeeList");
+
+coffees.forEach((coffee) => {
+    let li = document.createElement("li");
+    li.innerText = coffee;
+    printedList.appendChild(li);
+});
+
+function filterSearchCoffee() {
+    // Declare variables
+    let userSearch = document.getElementById("usersInput");
+    let filter = userSearch.value.toUpperCase();
+    let ul = document.getElementById("coffeeList");
+    let li = ul.getElementsByTagName('li');
+
+    // Loop through all list items, and hide those who don't match the search query
+    for (let i = 0; i < li.length; i++) {
+        let a = li[i].getElementsByTagName("a")[0];
+        let txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+
+
