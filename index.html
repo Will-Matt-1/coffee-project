@@ -15,24 +15,20 @@
 
 <!-- Begin Coffee Search/ Selector -->
     <form>
-        <label></label>
-        <input type="text" id="usersInput" onkeyup="filterSearchCoffee()" placeholder="Search for coffee..">
 
-        <ul id="coffeeList"></ul>
-    </form>
-    <!--
-    <form>
         <label for="roast-selection"></label>
         <select id="roast-selection">
-            <option class="indivClick" value="all">All</option>
-            <option class="indivClick" value="light">Light</option>
-            <option class="indivClick" value="medium">Medium</option>
-            <option class="indivClick" value="dark">Dark</option>
+            <option value="all">All</option>
+            <option value="light">Light</option>
+            <option value="medium">Medium</option>
+            <option value="dark">Dark</option>
         </select>
         <input id="submit" type="submit" />
-        <input id="search sort-coffee-by-name" type="search" />
+
+        <input type="text" id="userInput" placeholder="Search for coffee.." />
+        <div id="coffeeList"></div>
     </form>
-       -->
+
 
     <!--
     <div class="input-group mb-3">
@@ -76,16 +72,7 @@
      -->
 
     <!-- End Coffee Search/ Selector -->
-    <table>
-        <thead>
-            <tr>
-                <th>NAME</th>
-                <th>ROAST</th>
-            </tr>
-        </thead>
-        <tbody id="coffees"></tbody>
-    </table>
 
-    <script src="main.js"></script>
+    <script src="test.js"></script>
 </body>
 </html>
