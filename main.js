@@ -30,14 +30,10 @@ var coffees = [
     {id: 14, name: 'French', roast: 'dark'},
 ];
 
-var tbody = document.querySelector('#coffees');
-var submitButton = document.querySelector('#submit');
-var roastSelection = document.querySelector('#roast-selection');
-
-tbody.innerHTML = renderCoffees(coffees);
+// var roastSelection = document.querySelector('#roast-selection');
 
 // duplicate line 71-74
-submitButton.addEventListener('click', updateCoffees);
+// submitButton.addEventListener('click', updateCoffees);
 
 let list = document.getElementById('coffeeList');
 
