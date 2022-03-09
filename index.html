@@ -14,64 +14,26 @@
     <h1>Coffee!</h1>
 
 <!-- Begin Coffee Search/ Selector -->
-    <form>
 
+    <form>
         <label for="roast-selection"></label>
         <select id="roast-selection">
-            <option value="all">All</option>
-            <option value="light">Light</option>
-            <option value="medium">Medium</option>
-            <option value="dark">Dark</option>
+            <option selected value="all" id="all-roast">All</option>
+            <option value="light" id="light-roast">Light</option>
+            <option value="medium" id="medium-roast">Medium</option>
+            <option value="dark" id="dark-roast">Dark</option>
         </select>
         <input id="submit" type="submit" value="Roast Selector"/>
 
+        <br>
+
         <input type="text" id="userInput" placeholder="Search for coffee.." />
         <div id="coffeeList"></div>
-    </form>
-
-
-    <!--
-    <div class="input-group mb-3">
-        <button type="button" class="btn btn-outline-secondary">Roast</button>
-        <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-            <span class="visually-hidden">Toggle Dropdown</span>
-        </button>
-        <label for="roast-selection"></label>
-        <select id="roast-selection" class="dropdown-menu">
-            <option class="dropdown-item" href="#">All</option>
-            <option class="dropdown-item" href="#">Light</option>
-            <option class="dropdown-item" href="#">Medium</option>
-            <option class="dropdown-item" href="#">Dark</option>
-            <option><hr class="dropdown-divider"></option>
-            <option><a class="dropdown-item" href="#">Separated link</a></option>
         </select>
-        <input id="submit" type="submit" />
-        <input type="text" class="form-control">
-    </div>
-    -->
 
-
-    <!--
-    <form>
-        <div class="forms" method="POST">
-            <label for="roast-selection">Roast</label>
-            <br>
-            <select name="coffee_preference">
-                <option value="light">Light Roast</option>
-                <option value="dark">Dark Roast</option>
-                <option value="espresso">Espresso Blend</option>
-            </select>
-        </div>
-        <div class="forms">
-            <label for="new-coffee">Search</label>
-            <br>
-            <input type="text" name="new-coffee-input">
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
     </form>
-     -->
 
-    <!-- End Coffee Search/ Selector -->
+<!-- End Coffee Search/ Selector -->
 
     <script src="main.js"></script>
 </body>

@@ -17,9 +17,9 @@ var coffees = [
     {id: 13, name: 'Italian', roast: 'dark'},
     {id: 14, name: 'French', roast: 'dark'},
 ];
-/* TODO: Create Filtered Array function */
+/* TODO: Create Filtered Coffee Array function */
 
-// Creates var list by grabbing the li elements printed from addList
+// gets a reference to the coffeeList ul so we can add li's to it
 let list = document.getElementById('coffeeList');
 
 // Goes through to create a li for each coffee name/ roast type (printing the coffees array)
@@ -42,19 +42,26 @@ document.getElementById("userInput").addEventListener("input", e => { //Listenin
 //Calls array and prints on html page
 addList(coffees, list);
 
+/* TODO: Create Filtered Roast selection option */
 
-let  roastSelection = document.querySelector('#roast-selection');
+let roastSelection = document.querySelector('#roast-selection');
 let submitButton = document.querySelector('#submit');
 
-function updateCoffees(e) {
-    e.preventDefault(); // don't submit the form, we just want to update the data
+
+function updateCoffees() {
     let selectedRoast = roastSelection.value;
     let filteredCoffees = [];
-    coffees.forEach(function(coffee) {
-        if (coffee.roast === selectedRoast) {
-            filteredCoffees.push(coffee);
-        }
+    if (selectedRoast === 'all'){
+        filteredCoffees = coffees;
+    } else {
+        coffees.forEach(function(coffee) {
+            if (coffee.roast === selectedRoast) {
+                filteredCoffees.push(coffee);
+            }
+        });
+    }
+    filteredCoffees.sort(function (b, a){
+        return a.id - b.id;
     });
-    form.innerHTML = addList(coffees, list);
 }
 submitButton.addEventListener('click', updateCoffees);
