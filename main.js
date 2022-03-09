@@ -19,8 +19,8 @@ function renderCoffees(coffees) {
 
 function updateCoffees(e) {
     e.preventDefault(); // don't submit the form, we just want to update the data
-    var selectedRoast = roastSelection.value;
-    var filteredCoffees = [];
+    let selectedRoast = roastSelection.value;
+    let filteredCoffees = [];
     coffees.forEach(function(coffee) {
         if (coffee.roast === 'all') {
             return coffee;
@@ -34,9 +34,35 @@ function updateCoffees(e) {
     filteredCoffeesArr = filteredCoffees;
 }
 
+
+// creates new object with id, name, and roast properties from add coffee form
+function createNewCoffee() {
+    let newCoffeeObj = {
+        id: coffees.length + 1,
+        name: document.getElementById('addCoffeeName').value,
+        roast: document.getElementById('addCoffeeRoast').value
+    }
+    // console.log(newCoffeeObj);
+    return newCoffeeObj;
+}
+
+// pushes new coffee object to coffees array
+function addNewCoffee(x) {
+    coffees.push(createNewCoffee());
+}
+
+// creates new coffee object, pushes to coffees array, updates table in HTML
+function createAddRenderNewCoffee(e) {
+    e.preventDefault();
+    addNewCoffee(createNewCoffee());
+    tbody.innerHTML = renderCoffees(coffees);
+    console.log('i got clicked');
+    console.log(coffees)
+}
+
 var filteredCoffeesArr = [];
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
-var coffees = [
+let coffees = [
     {id: 1, name: 'Light City', roast: 'light'},
     {id: 2, name: 'Half City', roast: 'light'},
     {id: 3, name: 'Cinnamon', roast: 'light'},
@@ -53,6 +79,7 @@ var coffees = [
     {id: 14, name: 'French', roast: 'dark'},
 ];
 /* TODO: Create Filtered Coffee Array function */
+
 
 // gets a reference to the coffeeList ul so we can add li's to it
 let list = document.getElementById('coffees');
@@ -73,10 +100,7 @@ addList(coffees, list);
 
 /* TODO: Create Filtered Roast selection option */
 
-let tbody = document.querySelector('#coffees');
-let roastSelection = document.querySelector('#roast-selection');
-let submitButton = document.querySelector('#submit');
-console.log(roastSelection);
+
 // Listens to the keyup from user input (as user types, the array is filtered
 document.getElementById("userInput").addEventListener("input", e => { //Listening to input textbox with id userInput
     //.filter takes coffees array and pulls name from coffees and makes sure it matches
@@ -84,6 +108,28 @@ document.getElementById("userInput").addEventListener("input", e => { //Listenin
     //Takes list with coffee/roast names and applies filter capabilities and prints the list
     addList(filteredArray, list);
 });
-tbody.innerHTML = renderCoffees(coffees);
 
+
+let tbody = document.querySelector('#coffees');
+let submitButton = document.querySelector('#submit');
+let roastSelection = document.querySelector('#roast-selection');
+
+// creates variable to access addCoffeeSubmit button to later be used for event listener
+let addCoffeeSubmitButton = document.querySelector('#addCoffeeSubmit')
+
+
+// test creating new coffee and pushing to coffees array
+//  Works, but can't get working with event listener
+// addNewCoffee(createNewCoffee());
+
+tbody.innerHTML = renderCoffees(coffees);
 submitButton.addEventListener('click', updateCoffees);
+
+// creates/adds/updates coffees array when new coffee submit button clicked
+//  *** NOT WORKING *** PLZ HELP! :S
+addCoffeeSubmitButton.addEventListener('click', createAddRenderNewCoffee);
+
+
+
+
+
