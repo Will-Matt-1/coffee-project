@@ -1,10 +1,10 @@
 "use strict"
 
 function renderCoffee(coffee) {
-    var html = '<tr class="coffee">';
-    html += '<td>' + coffee.name + '</td>';
-    html += '<td>' + coffee.roast + '</td>';
-    html += '</tr>';
+    var html = '<div class="coffee">';
+    html += '<span class="nameSpan">' + coffee.name + " " + '</span>';
+    html += '<span class="roastSpan">' + coffee.roast + " " + '</span>';
+    html += '</div>';
 
     return html;
 }
@@ -22,12 +22,12 @@ function updateCoffees(e) {
     let selectedRoast = roastSelection.value;
     let filteredCoffees = [];
     coffees.forEach(function(coffee) {
-        if (coffee.roast === 'all') {
-            return coffee;
+        if (coffee.roast === allroastSelect) {
+            return coffees;
         } else if (coffee.roast === selectedRoast) {
             filteredCoffees.push(coffee);
         } else {
-            return null;
+            return "";
         }
     });
     tbody.innerHTML = renderCoffees(filteredCoffees);
@@ -61,25 +61,30 @@ function createAddRenderNewCoffee(e) {
 }
 
 var filteredCoffeesArr = [];
-// from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
-let coffees = [
-    {id: 1, name: 'Light City', roast: 'light'},
-    {id: 2, name: 'Half City', roast: 'light'},
-    {id: 3, name: 'Cinnamon', roast: 'light'},
-    {id: 4, name: 'City', roast: 'medium'},
-    {id: 5, name: 'American', roast: 'medium'},
-    {id: 6, name: 'Breakfast', roast: 'medium'},
-    {id: 7, name: 'High', roast: 'dark'},
-    {id: 8, name: 'Continental', roast: 'dark'},
-    {id: 9, name: 'New Orleans', roast: 'dark'},
-    {id: 10, name: 'European', roast: 'dark'},
-    {id: 11, name: 'Espresso', roast: 'dark'},
-    {id: 12, name: 'Viennese', roast: 'dark'},
-    {id: 13, name: 'Italian', roast: 'dark'},
-    {id: 14, name: 'French', roast: 'dark'},
-];
-/* TODO: Create Filtered Coffee Array function */
 
+var coffeesSerialized = JSON.stringify(coffees);
+localStorage.setItem("coffees", coffeesSerialized);
+
+
+// from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
+var coffees = [
+        {id: 1, name: 'Light City', roast: 'light'},
+        {id: 2, name: 'Half City', roast: 'light'},
+        {id: 3, name: 'Cinnamon', roast: 'light'},
+        {id: 4, name: 'City', roast: 'medium'},
+        {id: 5, name: 'American', roast: 'medium'},
+        {id: 6, name: 'Breakfast', roast: 'medium'},
+        {id: 7, name: 'High', roast: 'dark'},
+        {id: 8, name: 'Continental', roast: 'dark'},
+        {id: 9, name: 'New Orleans', roast: 'dark'},
+        {id: 10, name: 'European', roast: 'dark'},
+        {id: 11, name: 'Espresso', roast: 'dark'},
+        {id: 12, name: 'Viennese', roast: 'dark'},
+        {id: 13, name: 'Italian', roast: 'dark'},
+        {id: 14, name: 'French', roast: 'dark'},
+];
+
+/* TODO: Create Filtered Coffee Array function */
 
 // gets a reference to the coffeeList ul so we can add li's to it
 let list = document.getElementById('coffees');
@@ -94,12 +99,10 @@ let addList = (array, element) => {  // create function with 2 variables
     });
 }
 
-
 //Calls array and prints on html page
 addList(coffees, list);
 
 /* TODO: Create Filtered Roast selection option */
-
 
 // Listens to the keyup from user input (as user types, the array is filtered
 document.getElementById("userInput").addEventListener("input", e => { //Listening to input textbox with id userInput
@@ -113,6 +116,7 @@ document.getElementById("userInput").addEventListener("input", e => { //Listenin
 let tbody = document.querySelector('#coffees');
 let submitButton = document.querySelector('#submit');
 let roastSelection = document.querySelector('#roast-selection');
+let allroastSelect = document.querySelector('#all-roast');
 
 // creates variable to access addCoffeeSubmit button to later be used for event listener
 let addCoffeeSubmitButton = document.querySelector('#addCoffeeSubmit')
