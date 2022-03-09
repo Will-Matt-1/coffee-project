@@ -37,12 +37,22 @@ function createNewCoffee() {
         name: document.getElementById('addCoffeeName').value,
         roast: document.getElementById('addCoffeeRoast').value
     }
+    // console.log(newCoffeeObj);
     return newCoffeeObj;
 }
 
 // pushes new coffee object to coffees array
 function addNewCoffee(x) {
     coffees.push(createNewCoffee());
+}
+
+// creates new coffee object, pushes to coffees array, updates table in HTML
+function createAddRenderNewCoffee(e) {
+    e.preventDefault();
+    addNewCoffee(createNewCoffee());
+    tbody.innerHTML = renderCoffees(coffees);
+    console.log('i got clicked');
+    console.log(coffees)
 }
 
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
@@ -70,19 +80,21 @@ let submitButton = document.querySelector('#submit');
 let roastSelection = document.querySelector('#roast-selection');
 
 // creates variable to access addCoffeeSubmit button to later be used for event listener
-let addCoffeeSubmitButton = document.querySelector('#addCoffeeSubmit');
+let addCoffeeSubmitButton = document.querySelector('#addCoffeeSubmit')
 
-// creates event listener for add coffee submit button to create new coffee object when clicked
-addCoffeeSubmitButton.addEventListener('click', () => {
-    addNewCoffee(createNewCoffee());
-});
 
-// test creating new coffee and pushing to coffees array.  working
+// test creating new coffee and pushing to coffees array
+//  Works, but can't get working with event listener
 // addNewCoffee(createNewCoffee());
-
 
 tbody.innerHTML = renderCoffees(coffees);
 submitButton.addEventListener('click', updateCoffees);
+
+// creates/adds/updates coffees array when new coffee submit button clicked
+//  *** NOT WORKING *** PLZ HELP! :S
+addCoffeeSubmitButton.addEventListener('click', createAddRenderNewCoffee);
+
+
 
 
 
