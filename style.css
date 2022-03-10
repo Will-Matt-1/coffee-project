@@ -1,0 +1,19 @@
+.container {
+    margin-right: 0;
+}
+
+.nameSpan {
+    color: blue;
+}
+
+.roastSpan {
+    color: grey;
+}
+
+.title-text {
+    font-size: 36px;
+    text-align: center;
+    font-weight: bolder;
+    margin-bottom: 5%;
+}
+
