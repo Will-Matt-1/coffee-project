@@ -1,5 +1,60 @@
+body {
+    background-image: url("media/lo-fi-coffee.jpeg");
+    background-size:     cover;                      /* <------ */
+    background-repeat:   no-repeat;
+    background-position: center center;
+}
+
+#coffees {
+    text-shadow:
+            0 0 5px #FFF,
+            0 0 10px #FFF,
+            0 0 15px #FFF,
+            0 0 20px #49ff18,
+            0 0 30px #49FF18,
+            0 0 40px #49FF18,
+            0 0 55px #49FF18,
+            0 0 75px #49ff18;
+}
 
 .nameSpan {
     font-family: 'Genos', sans-serif;
     font-size: 3rem;
 }
+
+.roastSpan {
+    color: darkslategrey;
+}
+
+.card {
+    margin-top: 30%;
+    border: none;
+    background: rgba(108, 122, 137, 0.6);
+    text-shadow:
+            0 0 5px #FFF,
+            0 0 10px #FFF,
+            0 0 15px #FFF,
+            0 0 20px #49ff18,
+            0 0 30px #49FF18,
+            0 0 40px #49FF18,
+            0 0 55px #49FF18,
+            0 0 75px #49ff18;
+}
+
+.container {
+
+}
+
+#submit {
+    margin-bottom: 6%;
+}
+
+#addCoffeeSubmit {
+    margin-top: 6%;
+}
+
+#addCoffeeRoast {
+    margin-left: 4px;
+}
+
+
