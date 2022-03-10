@@ -46,7 +46,7 @@
     </div>
 </nav>
 
-<main class="row container">
+<main class="row container-fluid">
     <div id="coffees" class="col d-flex justify-content-center flex-column animate__animated animate__bounceInRight">
     </div>
     <div class="col d-flex justify-content-end">
@@ -54,19 +54,19 @@
             <div class="card p-3">
 
                 <!-- ***** Begin Coffee Search/ Selector ***** -->
-                <form class="">
+                <h3>Search our Coffees!</h3>
+                <form class="mt-2 mb-3">
                     <label for="roast-selection"></label>
-                    <select id="roast-selection" class="mb-3">
+                    <select id="roast-selection" type="text" class="mb-3">
                         <option value="all" id="all-roast">All</option>
                         <option value="light" id="light-roast">Light</option>
                         <option value="medium" id="medium-roast">Medium</option>
                         <option value="dark" id="dark-roast">Dark</option>
                     </select>
-                    <input id="submit" type="submit" value="Roast Selector"/>
-
                     <br>
+                    <input id="submit" type="submit" value="Roast Selector"/>
                     <div class="mb-3">
-                        <input type="text" id="userInput" placeholder="Search for coffee.." />
+                        <input class="mb-3" type="text" id="userInput" placeholder="search for coffee..." />
                     </div>
                 </form>
 
@@ -74,9 +74,10 @@
                 <!-- ***** End Coffee Search/ Selector ***** -->
 
                 <!-- ***** Add Coffee Form ***** -->
+                <h3>Create your own Coffee!</h3>
                 <form class="addCoffeeForm mt-2">
                     <div>
-                        <label for="addCoffeeRoast">Roast Type</label>
+                        <label class="mb-2" for="addCoffeeRoast">Roast Type</label>
                         <br>
                         <select id="addCoffeeRoast" type="text" class="mb-3">
                             <option value="light">Light</option>
@@ -84,10 +85,10 @@
                             <option value="dark">Dark</option>
                         </select>
                     </div>
-                    <div class="mb-3">
-                        <label for="addCoffeeName">Name</label>
+                    <div class="">
+                        <label class="mb-2" for="addCoffeeName">Name</label>
                         <br>
-                        <input id="addCoffeeName" type="text" value="">
+                        <input id="addCoffeeName" type="text" placeholder="your coffee name...">
                     </div>
                     <div>
                         <input id="addCoffeeSubmit" type="submit" value="Submit Coffee"/>
